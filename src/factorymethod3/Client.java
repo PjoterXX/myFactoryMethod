@@ -6,9 +6,12 @@
 package factorymethod3;
 
 import factorymethod2.InhabitantInfo.Inhabitant;
+import factorymethod2.factoryType.SimpleFactory;
 
 import factorymethod2.medicalServices.CT;
 import factorymethod2.medicalServices.MR;
+import factorymethod2.medicalServices.MedicalService;
+import factorymethod2.medicalServices.MedicalServicesType;
 
 /**
  *
@@ -42,7 +45,9 @@ public class Client {
         /* Factory method */
         
         /* Prosta fabryka (simple factory) */
-        //...
+        SimpleFactory factory1 = new SimpleFactory();
+        MedicalService ct1 = factory1.createTeratment(MedicalServicesType.CT);
+        MedicalService mr1 = factory1.createTeratment(MedicalServicesType.MR);
 
         /* Fabryka statyczna (static factory) */
         //...
