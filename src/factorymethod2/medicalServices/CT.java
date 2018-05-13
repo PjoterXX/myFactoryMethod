@@ -9,6 +9,6 @@ package factorymethod2.medicalServices;
  *
  * @author LeopardProMK
  */
-public class CT{
+public class CT extends MedicalService{
     /* Klasa reprezentująca badanie tomografii komputerowej */
 }

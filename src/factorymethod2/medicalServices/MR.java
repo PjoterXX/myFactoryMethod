@@ -9,6 +9,6 @@ package factorymethod2.medicalServices;
  *
  * @author LeopardProMK
  */
-public class MR {
+public class MR  extends MedicalService{
     /* Klasa reprezentująca badanie rezonansu magnetycznego */
 }
