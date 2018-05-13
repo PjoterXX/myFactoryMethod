@@ -5,6 +5,8 @@
  */
 package factorymethod2.InhabitantInfo;
 
+import factorymethod2.medicalServices.MedicalService;
+
 /**
  *
  * @author LeopardProMK
@@ -50,7 +52,7 @@ public class Inhabitant {
             return this;
         }
 
-        public Builder addTreatment(Object treatment) {
+        public Builder addTreatment(MedicalService treatment) {
             this.listOfTreatments.AddTreatment(treatment);
             return this;
         }

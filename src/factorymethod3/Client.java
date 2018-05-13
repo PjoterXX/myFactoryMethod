@@ -27,7 +27,7 @@ public class Client {
 
         /* Anti-pattern  */
         String typeOfService = "CT";// czy na pewno ten typ jest odpowiedni?
-        Object currentService = null;// czy na pewno ten typ jest odpowiedni?
+        MedicalService currentService = null;// czy na pewno ten typ jest odpowiedni?
 
         // Czy na pewno drabinka if-elsów jest czytelna
         if (typeOfService.equals("CT")) {

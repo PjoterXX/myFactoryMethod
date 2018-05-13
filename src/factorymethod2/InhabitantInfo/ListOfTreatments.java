@@ -5,6 +5,7 @@
  */
 package factorymethod2.InhabitantInfo;
 
+import factorymethod2.medicalServices.MedicalService;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +15,13 @@ import java.util.List;
  */
 public class ListOfTreatments {
 
-    private List treatments = null;
+    private List<MedicalService> treatments = null;
 
     public ListOfTreatments() {
         this.treatments = new ArrayList();
     }
 
-    public void AddTreatment(Object treatment) {
+    public void AddTreatment(MedicalService treatment) {
         treatments.add(treatment);
     }
 }
