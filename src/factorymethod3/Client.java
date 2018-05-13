@@ -6,12 +6,9 @@
 package factorymethod3;
 
 import factorymethod2.InhabitantInfo.Inhabitant;
-import factorymethod2.factoryType.SimpleFactory;
-import factorymethod2.factoryType.StaticFactory;
 
-import factorymethod2.medicalServices.CT;
-import factorymethod2.medicalServices.MR;
-import factorymethod2.medicalServices.MedicalService;
+import factorymethod2.factoryType.AbstractFactoryMethod;
+
 import factorymethod2.medicalServices.MedicalServicesType;
 
 /**
@@ -20,38 +17,19 @@ import factorymethod2.medicalServices.MedicalServicesType;
  */
 public class Client {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    AbstractFactoryMethod factory = null;
 
-        /* Anti-pattern  */
-        String typeOfService = "CT";// czy na pewno ten typ jest odpowiedni?
-        MedicalService currentService = null;// czy na pewno ten typ jest odpowiedni?
+    public Client(AbstractFactoryMethod factory) {
+        this.factory = factory;
+    }
 
-        // Czy na pewno drabinka if-elsów jest czytelna
-        if (typeOfService.equals("CT")) {
-            currentService = new CT();
-        } else if (typeOfService.equals("MR")) {
-            currentService = new MR();
-        }
-        //... // czy ten fragment kodu jest zamknięty na zmiany?
-
+    public void Run() {
         Inhabitant inhabitant1 = new Inhabitant.Builder("Michał", 26)
-                .addTreatment(currentService) // co jeżeli chciałbym dodać kolejny zabieg?
+                .addTreatment(factory.createTeratment(MedicalServicesType.CT))
+                .addTreatment(factory.createTeratment(MedicalServicesType.MR))
+                .addTreatment(factory.createTeratment(MedicalServicesType.USG))
+                .addTreatment(factory.createTeratment(MedicalServicesType.RTG))
                 .build();
 
-        /* vs */
-
-        /* Factory method */
-        
-        /* Prosta fabryka (simple factory) */
-        SimpleFactory factory1 = new SimpleFactory();
-        MedicalService ct1 = factory1.createTeratment(MedicalServicesType.CT);
-        MedicalService mr1 = factory1.createTeratment(MedicalServicesType.MR);
-
-        /* Fabryka statyczna (static factory) */
-        MedicalService ct2 = StaticFactory.createTeratment(MedicalServicesType.CT);
-        MedicalService mr2 = StaticFactory.createTeratment(MedicalServicesType.MR);
     }
 }

@@ -16,7 +16,7 @@ import factorymethod2.medicalServices.MedicalServicesType;
  *
  * @author LeopardProMK
  */
-public class SimpleFactory {
+public class SimpleFactory1 implements AbstractFactoryMethod{
 
     public MedicalService createTeratment(MedicalServicesType medicalServicesType) {
 
